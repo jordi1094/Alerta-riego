@@ -1,0 +1,7 @@
+//Lstado variables plantas
+
+var plant_1 = true
+var plant_2 = false
+var plant_3 = false
+var plant_4 = true
+

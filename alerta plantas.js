@@ -52,8 +52,8 @@ function Alarma(){
     segundo = "0" + segundo
   }
 
-  var A_Hora = 13;
-  var A_minutos = 04;
+  var A_Hora = 18;
+  var A_minutos = 30;
 
   if (hora == A_Hora && minuto == A_minutos && segundo=="00"){
     sendMail();
