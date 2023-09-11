@@ -5,3 +5,19 @@ var plant_2 = false
 var plant_3 = false
 var plant_4 = true
 
+const Plantas = ["Las plantas que necesitan agua son:",];
+
+if (plant_1 === false) {
+    Plantas.push("planta 1")
+}
+if (plant_2 === false) {
+    Plantas.push("planta 2")
+}
+if (plant_3 === false) {
+    Plantas.push("planta 3")
+}
+if (plant_4 === false) {
+    Plantas.push("planta 4")
+}
+
+console.log(Plantas)
