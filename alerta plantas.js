@@ -2,6 +2,7 @@
 //MAILER
 
 const nodemailer = require("nodemailer");
+const { Script } = require("vm");
 
 const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
@@ -20,22 +21,66 @@ const transporter = nodemailer.createTransport({
 //input del sensor. si es 0(false) no pasa corrientet, la tierra esta seca. si es 1 (true) si pasa corriente la tierra esta humeda.
 
 //al no tener el sensor simulamos el inputt generando booleanos aleatorios.
-var humedad = false //Boolean(Math.round(Math.random()));
-// a partir de aqui funciona
+//Boolean(Math.round(Math.random()));
+
+
+var plant_1 = Boolean(Math.round(Math.random()));
+var plant_2 = Boolean(Math.round(Math.random()));
+var plant_3 = Boolean(Math.round(Math.random()));
+var plant_4 = Boolean(Math.round(Math.random()));
+var plant_5 = Boolean(Math.round(Math.random()));
+var plant_6 = Boolean(Math.round(Math.random()));
+var plant_7 = Boolean(Math.round(Math.random()));
+var plant_8 = Boolean(Math.round(Math.random()));
+
+//Creación del array
+var Plantas = ["Las plantas que necesitan agua son:",];
+
+if (plant_1 === false) {
+    Plantas.push("planta 1 ")
+}
+if (plant_2 === false) {
+    Plantas.push("planta 2 ")
+}
+if (plant_3 === false) {
+    Plantas.push("planta 3 ")
+}
+if (plant_4 === false) {
+    Plantas.push("planta 4 ")
+}
+if (plant_5 === false) {
+  Plantas.push("planta 5 ")
+}
+if (plant_6 === false) {
+  Plantas.push("planta 6 ")
+}
+if (plant_7 === false) {
+  Plantas.push("planta 7 ")
+}
+if (plant_8 === false) {
+  Plantas.push("planta 8 ")
+}
+
+//transformar array a sring
+let texto = Plantas.toString();
+
+// Envio de email
 function sendMail(){
-  if (humedad === false) {
+  if (plant_1 === false || plant_2===false || plant_3=== false || plant_4=== false) {
       const info = transporter.sendMail({
           from: '"Tenemos sed" <tenemossedplantas>', // sender address
           to: "jordi10111994@gmail.com", // list of receivers
-          subject: "Tus plantas necesitasn agua", // Subject line
-          text: "Tengo sed 2", // plain text body
-          html: "<b>rieganos 5</b>", // html body
+          subject: "Tus plantas necesitan agua", // Subject line
+          text: Plantas.toString(), // plain text body
+          html: Plantas.toString(),// html body
         });
   }
   else{
       console.log('no hay que regar');
   }
 };
+
+
 
 //activación por hora 
 function Alarma(){
@@ -52,11 +97,13 @@ function Alarma(){
     segundo = "0" + segundo
   }
 
-  var A_Hora = 18;
-  var A_minutos = 30;
+  var A_Hora = 21;
+  var A_minutos = 42;
 
   if (hora == A_Hora && minuto == A_minutos && segundo=="00"){
     sendMail();
   }
+  var Plantas =[] 
 }
 setInterval(Alarma,1000)
+

@@ -19,5 +19,3 @@ if (plant_3 === false) {
 if (plant_4 === false) {
     Plantas.push("planta 4")
 }
-
-console.log(Plantas)
