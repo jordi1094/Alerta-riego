@@ -66,7 +66,7 @@ let texto = Plantas.toString();
 
 // Envio de email
 function sendMail(){
-  if (plant_1 === false || plant_2===false || plant_3=== false || plant_4=== false) {
+  if (plant_1 === false || plant_2===false || plant_3=== false || plant_4=== false || plant_5 === false || plant_6===false || plant_7=== false || plant_8=== false ) {
       const info = transporter.sendMail({
           from: '"Tenemos sed" <tenemossedplantas>', // sender address
           to: "jordi10111994@gmail.com", // list of receivers
