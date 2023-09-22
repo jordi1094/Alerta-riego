@@ -1,4 +1,4 @@
-
+let Gpio = require('onoff').Gpio;
 //MAILER
 
 const nodemailer = require("nodemailer");
@@ -34,7 +34,7 @@ var plant_7 = Boolean(Math.round(Math.random()));
 var plant_8 = Boolean(Math.round(Math.random()));*/
 
 //lector sensor
-let Gpio = require('onoff').Gpio;
+
 let button = new Gpio(2, 'in', 'both');
 setInterval(()=>{
 var value = button.readSync()
