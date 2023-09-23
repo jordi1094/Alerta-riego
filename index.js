@@ -18,39 +18,35 @@ const transporter = nodemailer.createTransport({
 // ----------------------------------------------------------
 
 
-//input del sensor. si es 0(false) no pasa corrientet, la tierra esta seca. si es 1 (true) si pasa corriente la tierra esta humeda.
-
-//al no tener el sensor simulamos el inputt generando booleanos aleatorios.
-//Boolean(Math.round(Math.random()));
+//input del sensor. si es 1 no pasa corrientet, la tierra esta seca. si es 0 si pasa corriente la tierra esta humeda.
 
 
-var plant_1 = new Gpio(2, 'in', 'both');
-/*var plant_2 = Boolean(Math.round(Math.random()));
-var plant_3 = Boolean(Math.round(Math.random()));
-var plant_4 = Boolean(Math.round(Math.random()));
-var plant_5 = Boolean(Math.round(Math.random()));
-var plant_6 = Boolean(Math.round(Math.random()));
-var plant_7 = Boolean(Math.round(Math.random()));
-var plant_8 = Boolean(Math.round(Math.random()));*/
 
 //lector sensor
+//planta 1
+let button_1 = new Gpio(2, 'in', 'both');
 
-let button = new Gpio(2, 'in', 'both');
-setInterval(()=>{
-var value = button.readSync()
-  console.log(value);
-},4000);
-plan_1_value = button.readSync()
+plant_1_value = button_1.readSync()
+
+//planta 2
+let button_2 = new Gpio(10,'in','both');
+
+plant_2_value = button2.readSync()
+
+
+//------------------------------------------------------------------------
+
 //Creación del array
-var Plantas = ["Las plantas que necesitan agua son:",];
+var Plantas = ["Las plantas que necesitan agua son: /n",];
 
 if (plant_1_value === 1) {
-    Plantas.push("planta 1 ")
+    Plantas.push("planta 1 /n ")
+}
+
+if (plant_2 === false) {
+    Plantas.push("planta 2 /n")
 }
 /*
-if (plant_2 === false) {
-    Plantas.push("planta 2 ")
-}
 if (plant_3 === false) {
     Plantas.push("planta 3 ")
 }
@@ -75,7 +71,7 @@ let texto = Plantas.toString();
 
 // Envio de email
 function sendMail(){
-  if (plant_1 === 1 /*|| plant_2===false || plant_3=== false || plant_4=== false || plant_5 === false || plant_6===false || plant_7=== false || plant_8=== false*/ ) {
+  if (plant_1 === 1 || plant_2 === 1 /*|| plant_3=== false || plant_4=== false || plant_5 === false || plant_6===false || plant_7=== false || plant_8=== false*/ ) {
       const info = transporter.sendMail({
           from: '"Tenemos sed" <tenemossedplantas>', // sender address
           to: "jordi10111994@gmail.com", // list of receivers
@@ -85,9 +81,16 @@ function sendMail(){
         });
   }
   else{
-      console.log('no hay que regar');
+    const info = transporter.sendMail({
+      from: '"No tenemos sed" <tenemossedplantas>', // sender address
+      to: "jordi10111994@gmail.com", // list of receivers
+      subject: "Tus plantas estan perfectas", // Subject line
+      text: "Todas las plantas estan regadas", // plain text body
+      html: "Todas las plantas estan regadas /n ¡Gracias!",// html body
+    });
   }
-};
+}
+
 
 
 
@@ -106,8 +109,8 @@ function Alarma(){
     segundo = "0" + segundo
   }
 
-  var A_Hora = 21;
-  var A_minutos = 52;
+  var A_Hora = 19;
+  var A_minutos = 30;
 
   if (hora == A_Hora && minuto == A_minutos && segundo=="00"){
     sendMail();
