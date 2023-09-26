@@ -86,7 +86,7 @@ function sendMail(){
       to: "jordi10111994@gmail.com", // list of receivers
       subject: "Tus plantas estan perfectas", // Subject line
       text: "Todas las plantas estan regadas", // plain text body
-      html: "Todas las plantas estan regadas /n ¡Gracias!",// html body
+      html: "Todas las plantas estan regadas"<br> "¡Gracias!",// html body
     });
   }
 }
