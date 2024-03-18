@@ -24,12 +24,12 @@ const transporter = nodemailer.createTransport({
 
 //lector sensor
 //planta 1
-let button_1 = new Gpio(2, 'in', 'both');
+let button_1 = new Gpio(23,'in', 'both');
 
 plant_1_value = button_1.readSync()
 
 //planta 2
-let button_2 = new Gpio(10,'in','both');
+let button_2 = new Gpio(24,'in','both');
 
 plant_2_value = button_2.readSync()
 
@@ -40,19 +40,18 @@ plant_2_value = button_2.readSync()
 var Plantas = ["Las plantas que necesitan agua son: "];
 
 if (plant_1_value === 1) {
-    Plantas.push("planta 1 ")
+Plantas.push("planta 1 ")
 }
-
+/*
 if (plant_2_value === 1) {
     Plantas.push("planta 2 ")
 }
-/*
+
 if (plant_3 === false) {
     Plantas.push("planta 3 ")
 }
 if (plant_4 === false) {
     Plantas.push("planta 4 ")
-}
 if (plant_5 === false) {
   Plantas.push("planta 5 ")
 }
@@ -86,7 +85,7 @@ function sendMail(){
       to: "jordi10111994@gmail.com", // list of receivers
       subject: "Tus plantas estan perfectas", // Subject line
       text: "Todas las plantas estan regadas", // plain text body
-      html: "Todas las plantas estan regadas"<br> "¡Gracias!",// html body
+      html: "Todas las plantas estan regadas /n ¡Gracias!",// html body
     });
   }
 }
@@ -109,13 +108,15 @@ function Alarma(){
     segundo = "0" + segundo
   }
 
-  var A_Hora = 20;
-  var A_minutos = 00;
+  var A_Hora = 18;
+  var A_minutos = 30;
 
   if (hora == A_Hora && minuto == A_minutos && segundo=="00"){
     sendMail();
   }
-  var Plantas =[] 
+  var Plantas =[]
 }
 setInterval(Alarma,1000)
+
+console.log(plant_1_value)
 
