@@ -1,3 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 *{
-    background-color: rgb(126, 178, 126);
+    background-color: #f5f1de;
+    font-family: "Urbanist";
+    color: #2D5128;
+}
+.head{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-right: 2vw;
+}
+h1{
+    color: #537B2F;
+    font-size: 10vw ;
+}
+.gridPlantas{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3,1fr);
+    margin: 5VW;
+    gap: 2vw;
+}
+h4{
+    color: #859970;
+}
+.Planta{
+    border: 4px solid #859970 ;
+    border-radius: 20px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    gap: 10px;
+}
+
+#addPlant{
+    font-size: 60px;
+    display: flex;
+    justify-content: center;
+}
+.valorDatos{
+    font-size: 25px;
 }
