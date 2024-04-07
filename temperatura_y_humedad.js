@@ -1,9 +1,16 @@
-var sensor = require("node-dht-sensor");
+const sensor = require("node-dht-sensor");
+const  temperaturahab =document.getElementById("temperaturaHab")
+const humedadHab = document.getElementById("humedadhab")
+
 sensor.read(22,4,function(err,temperature,humidity){
 	if(!err){
-	console.log("temp:"+temperature+"ºc, humidity:"+humidity+"%");
+		temperaturahab.innerText = temperature + 'ºc';
+		humedadHab.innerText = humidity + '%';
+		console.log("temp:"+temperature+"ºc, humidity:"+humidity+"%");
 	}
 	if(err){
-	console.log("error")
+		temperaturahab.innerText = 'ERROR';
+		humedadHab.innerText = 'ERROR';
+		console.log("error")
 	}
 });
