@@ -1,0 +1,33 @@
+{
+  "name": "alerta-riego",
+  "version": "2.0.0",
+  "description": "App for raspberri pi to read humidity from the plants and ambiental temperature and humidity.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "sim": "SIMULATE === TRUE node index.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jordi1094/Alerta-riego.git"
+  },
+  "keywords": [
+    "node",
+    "pi",
+    "raspberry",
+    "sensors",
+    "plants"
+  ],
+  "author": "Jordi Isern",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jordi1094/Alerta-riego/issues"
+  },
+  "homepage": "https://github.com/jordi1094/Alerta-riego#readme",
+  "dependencies": {
+    "onoff": "^6.0.3",
+    "sqlite": "^5.1.1"
+  }
+}
