@@ -28,6 +28,7 @@
   "homepage": "https://github.com/jordi1094/Alerta-riego#readme",
   "dependencies": {
     "onoff": "^6.0.3",
+    "pg": "^8.14.1",
     "sqlite": "^5.1.1"
   }
 }
