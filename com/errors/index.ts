@@ -22,11 +22,19 @@ class CredentialError extends ContentError {
     this.name = "CredentialError";
   }
 }
-export {
+class DupliciteError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "DupliciteError";
+  }
+}
+
+  export {
   ContentError,
   NotFoundError,
   InvalidInputError,
   CredentialError,
+  DupliciteError
 };
 
 const errors = {
@@ -34,5 +42,7 @@ const errors = {
   NotFoundError,
   InvalidInputError,
   CredentialError,
-};
+  DupliciteError
+}
+
 export default errors;
