@@ -1,16 +1,9 @@
 import 'dotenv/config';
 import express, { Request, Response } from 'express';
 import cors from 'cors';
-import { Client } from 'pg';
+import {db} from './config/db'
 
-const { PORT } = process.env;
-
-const db = new Client({
-  user: 'jordi',
-  host: 'localhost',
-  database: 'alerta_riego',
-  port: 5432,
-});
+const {PORT} = process.env
 
 db.connect()
   .then(() => {
