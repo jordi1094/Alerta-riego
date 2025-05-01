@@ -28,13 +28,20 @@ class DupliciteError extends Error {
     this.name = "DupliciteError";
   }
 }
+class MatchError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "MatchError";
+  }
+}
 
   export {
   ContentError,
   NotFoundError,
   InvalidInputError,
   CredentialError,
-  DupliciteError
+  DupliciteError,
+  MatchError
 };
 
 const errors = {
@@ -42,7 +49,8 @@ const errors = {
   NotFoundError,
   InvalidInputError,
   CredentialError,
-  DupliciteError
+  DupliciteError,
+  MatchError
 }
 
 export default errors;

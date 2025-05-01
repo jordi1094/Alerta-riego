@@ -8,9 +8,9 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "baseUrl": "../",
+    "baseUrl": "./",
 
   },
-  "include": ["src", "../com/"],
+  "include": ["src/**/*", "../com/**/*"],
   "exclude": ["node_modules"]
 }
