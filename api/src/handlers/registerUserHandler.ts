@@ -1,6 +1,8 @@
 import { Request, Response } from 'express';
 import logic from '../logic/index.js'
 import { UserRequestBody } from '../types/User.js';
+import validateSchemas from 'com/dist/validations/index.js';
+
 
 export default function registerUserHandler(
     req: Request<{}, {}, UserRequestBody>,
@@ -8,13 +10,17 @@ export default function registerUserHandler(
 ): void {
     const { name, email, username, password, passwordRepeat } = req.body;
     const db = req.app.locals.db
-    const user = {
+    const userRequest = {
         name: name,
         email: email,
         username: username,
         password: password,
         passwordRepeat: passwordRepeat
     }
-    logic.registerUser(user, db)
-    res.send('User Created')
+    const validation  = validateSchemas.userRequestBodyValidation.safeParse(userRequest)
+    if(!validation.succes){
+        res.status(400).json({error: validation.error.flatten()})
+    }
+    logic.registerUser(userRequest, db)
+    res.status(201)
 }
