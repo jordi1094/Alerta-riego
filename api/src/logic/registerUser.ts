@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs'
-import {DupliciteError, MatchError} from 'com/errors/index.js'
-import validation from 'com/validations/index.js'
+import {DupliciteError, MatchError} from 'com/dist/errors/index.js'
+import validation from 'com/dist/validations/index.js'
 import {Sql} from 'postgres'
 import { UserRequestBody } from '../types/User.js'
 
