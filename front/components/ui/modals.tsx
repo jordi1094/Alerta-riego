@@ -1,7 +1,7 @@
 import { ReactNode } from "react"
 
 type ModalsProps = {
-    isOpen: Boolean,
+    isOpen: boolean,
     onClose: () => void,
     children: ReactNode
 }

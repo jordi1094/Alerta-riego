@@ -1,5 +1,5 @@
 import { RequestHandler } from "express";
-import registerUserHandler from "./registerUserHandler";
+import registerUserHandler from "./registerUserHandler.js";
 
 type routerHandlerMap = {
     registerUserHandler : RequestHandler

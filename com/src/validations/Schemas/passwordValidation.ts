@@ -11,4 +11,3 @@ const passwordValidation = z
   .regex(/^(?!.*\s).+$/, {message: 'Password cannot contain spaces'})
 
 export default passwordValidation; 
-// This code defines a Zod schema for validating passwords. It checks that the password meets certain criteria, such as length, character types, and the absence of spaces.

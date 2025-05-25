@@ -1,14 +1,13 @@
 import { Request, Response } from 'express';
-import { Sql } from 'postgres';
-import logic from '../logic'
-import { UserRequestBody } from '../types/User';
+import logic from '../logic/index.js'
+import { UserRequestBody } from '../types/User.js';
 
 export default function registerUserHandler(
     req: Request<{}, {}, UserRequestBody>,
     res: Response,
-    db:Sql<{}>
 ): void {
     const { name, email, username, password, passwordRepeat } = req.body;
+    const db = req.app.locals.db
     const user = {
         name: name,
         email: email,
@@ -17,4 +16,5 @@ export default function registerUserHandler(
         passwordRepeat: passwordRepeat
     }
     logic.registerUser(user, db)
+    res.send('User Created')
 }

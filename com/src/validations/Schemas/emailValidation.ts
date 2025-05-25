@@ -9,4 +9,3 @@ const emailValidation = z
   .regex(/^(?!.*\s).+$/, {message: 'Email cannot contain spaces'})
 
 export default emailValidation;
-// This code defines a Zod schema for validating email addresses.
