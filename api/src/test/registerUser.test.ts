@@ -1,7 +1,7 @@
 /// <reference types="jest"/>
 import 'dotenv/config'
 import registerUser from '../logic/registerUser'
-import { ContentError, DupliciteError, MatchError } from 'com/errors';
+import { ContentError, DupliciteError, MatchError } from 'com/dist/errors/index.js'
 import sqlTest from '../db/testdb';
 import { UserRequestBody, User } from '../types/User';
 
