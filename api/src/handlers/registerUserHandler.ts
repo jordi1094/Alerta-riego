@@ -18,15 +18,10 @@ export default  async function registerUserHandler(
         password: password,
         passwordRepeat: passwordRepeat
     }
-<<<<<<< HEAD
-    const validation = userRequestBodyValidation.safeParse(userRequest);
-    if(!validation.success){
-        res.status(400).json({error: validation.error.flatten()})
-=======
+
     const validation  = userRequestBodyValidation.safeParse(userRequest)
     if(!validation.success){
         res.status(422).json({error: validation.error.flatten()})
->>>>>>> e7ee65715dac85e47b0fb1e4110e9878ae9535c3
         return
     }
 
