@@ -1,4 +1,4 @@
-import z from "zod";
+import {z} from "zod";
 import emailValidation from "./emailValidation";
 import nameValidation from "./nameValidation";
 import passwordValidation from "./passwordValidation";

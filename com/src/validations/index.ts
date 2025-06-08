@@ -12,3 +12,6 @@ const validateSchemas = {
 };
 
 export default validateSchemas;
+
+export {nameValidation, passwordValidation, emailValidation, userRequestBodyValidation}
+
