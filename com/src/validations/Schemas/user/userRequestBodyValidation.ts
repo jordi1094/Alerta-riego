@@ -1,7 +1,8 @@
 import z from "zod";
-import emailValidation from "./emailValidation";
-import nameValidation from "./nameValidation";
-import passwordValidation from "./passwordValidation";
+import emailValidation from "./emailValidation.js";
+import nameValidation from "./nameValidation.js";
+
+import passwordValidation from "./passwordValidation.js";
 
 
 const userRequestBodyValidation = z.object({
