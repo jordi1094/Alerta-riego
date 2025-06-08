@@ -11,7 +11,7 @@ async function startDb(db:Sql) {
             )`
         
     } catch (error) {
-        console.log(error)
+        console.error(error)
     }
 }
 
