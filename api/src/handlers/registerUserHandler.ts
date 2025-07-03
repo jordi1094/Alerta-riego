@@ -22,17 +22,14 @@ export default  async function registerUserHandler(
     const validation  = userRequestBodyValidation.safeParse(userRequest)
     if(!validation.success){
         res.status(422).json({error: validation.error.flatten()})
-        return
     }
 
     const registerResult:void| {error:Error} = await logic.registerUser(userRequest, db)
     
     if(!registerResult){
         res.status(201).json({ message: "User successfully registered." })
-        return
     }else{
-        res.status(409).json({error: registerResult.error.message})
-        return
+        res.status(409).json({error: registerResult.error.message})  
     }
-
+    return
 }

@@ -1,4 +1,5 @@
 import { ChangeEvent } from "react"
+import { UseFormRegisterReturn } from "react-hook-form"
 
 type FormInputsProps = {
     id: string
@@ -10,9 +11,10 @@ type FormInputsProps = {
     className?: string
     labelClassName?: string
     inputClassName?: string
+    formhook: UseFormRegisterReturn
 }
 
-export default function FormInput ({id, name, type = "text", value, onChange, required = false, className, labelClassName, inputClassName}: FormInputsProps){
+export default function FormInput ({id, name, type = "text", value, onChange, required = false, className, labelClassName, inputClassName, formHook}: FormInputsProps){
     return (
         <div className={`flex gap-3 ${className}`}>
             <label htmlFor={id} className={labelClassName}>{name}</label>
@@ -23,7 +25,8 @@ export default function FormInput ({id, name, type = "text", value, onChange, re
             value={value}
             onChange={onChange}
             required={required}
-            className={`${inputClassName} rounded-md border focus:outline-1 focus:outline-gray-700 px-1`}/> 
+            className={`${inputClassName} rounded-md border focus:outline-1 focus:outline-gray-700 px-1`}
+            {...formHook}/> 
         </div>
     )
 }
